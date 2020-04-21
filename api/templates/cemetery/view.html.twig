@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+    <div class="row">
+
+        <div class="col-md-auto col-sm-auto">
+
+            <div class="content-background" >
+                <div class="content">
+
+                    <div align="right"><a href="{{ path('app_cemetery_add') }}" title="Cemeteries" class="btn btn-primary">Add Cemetery</a></div>
+
+                    <h2>Cemeteries:</h2>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Cemetery ID</th>
+                            <th scope="col">Reference</th>
+                            <th scope="col">Organization</th>
+                            <th scope="col">Calendar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                         {% for cemetery in cemeteries['hydra:member'] %}
+                        <tr>
+                            <td>{{ (cemetery['id']) }}</td>
+                            <td>{{ (cemetery['reference']) }}</td>
+                            {% for organization in organizations['hydra:member'] %}
+                                {% if organization['@id'] == cemetery['organization'] %}
+                                    <td>{{ (organization['name']) }}</td>
+                                    {% set break = true %}
+                                {% endif %}
+                            {% endfor %}
+                            <td>{{ (cemetery['calendar']) }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div><!-- /.content -->
+            </div><!-- /.content-background -->
+        </div><!-- /.col -->
+    </div>
+
+{% endblock %}

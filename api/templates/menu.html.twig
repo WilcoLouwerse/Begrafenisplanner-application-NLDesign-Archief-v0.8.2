@@ -19,13 +19,28 @@
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="{{ path('app_agenda_view') }}" title="AgendaTest" class="nav__link  ">
-                            <span>AgendaTest</span>
+                        <a href="{{ path('app_cemetery_view') }}" title="Cemetery" class="nav__link  ">
+                            <span>Cemetery</span>
                         </a>
                     </li>
                     <li class="nav__item">
-                        <a href="{{ path('app_agenda_event') }}" title="EventTest" class="nav__link  ">
-                            <span>EventTest</span>
+                        <a href="{{ path('app_agenda_calendar') }}" title="Calendar" class="nav__link  ">
+                            <span>Calendar</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="{{ path('app_agenda_event') }}" title="Event" class="nav__link  ">
+                            <span>Event</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="{{ path('app_organization_organization') }}" title="Organization" class="nav__link  ">
+                            <span>Organization</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="{{ path('app_contact_organization') }}" title="ContactOrganization" class="nav__link  ">
+                            <span>ContactOrganization</span>
                         </a>
                     </li>
                     {% if user is defined and user is not empty %}

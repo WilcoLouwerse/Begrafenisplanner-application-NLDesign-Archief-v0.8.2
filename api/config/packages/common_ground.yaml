@@ -45,7 +45,7 @@ parameters:
     common_ground.bs.location: 'https://bs.zaakonline.nl'
     common_ground.bs.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.cc.location: 'https://cc.zaakonline.nl'
+    common_ground.cc.location: 'https://cc.begraven.zaakonline.nl'
     common_ground.cc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
     common_ground.irc.location: 'https://irc.zaakonline.nl'

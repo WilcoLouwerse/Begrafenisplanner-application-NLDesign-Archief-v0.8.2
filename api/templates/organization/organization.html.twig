@@ -9,33 +9,32 @@
             <div class="content-background" >
                 <div class="content">
 
-                    <h2>Calendar Test Weergaven:</h2>
+                    <div align="right"><a href="{{ path('app_organization_addorganization') }}" title="Organizations" class="btn btn-primary">Add Organization</a></div>
+
+                    <h2>Organizations:</h2>
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">Calendar ID</th>
+                            <th scope="col">Organization ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">Description</th>
-                            <th scope="col">Timezone</th>
                             <th scope="col">Date Created</th>
                             <th scope="col">Date Modified</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                         {% for calendar in calendars['hydra:member'] %}
+                        {% for organization in organizations['hydra:member'] %}
                         <tr>
-                            <td>{{ (calendar["id"]) }}</td>
-                            <td>{{ (calendar["name"]) }}</td>
-                            <td>{{ (calendar["description"]) }}</td>
-                            <td>{{ (calendar["timeZone"]) }}</td>
-                            <td>{{ (calendar["dateCreated"]) }}</td>
-                            <td>{{ (calendar["dateModified"]) }}</td>
+                            <td>{{ (organization["id"]) }}</td>
+                            <td>{{ (organization["name"]) }}</td>
+                            <td>{{ (organization["description"]) }}</td>
+                            <td>{{ (organization["dateCreated"]) }}</td>
+                            <td>{{ (organization["dateModified"]) }}</td>
                         </tr>
-                       {% endfor %}
+                        {% endfor %}
                         </tbody>
                     </table>
-
 
                 </div><!-- /.content -->
             </div><!-- /.content-background -->

@@ -22,14 +22,14 @@ use DateTimeZone;
 class AgendaController extends AbstractController
 {
     /**
-     * @Route("/view")
+     * @Route("/calendar")
      * @Template
      */
-    public function viewAction(Session $session, $slug = false, Request $httpRequest, CommonGroundService $commonGroundService, ApplicationService $applicationService)
+    public function calendarAction(Session $session, $slug = false, Request $httpRequest, CommonGroundService $commonGroundService, ApplicationService $applicationService)
     {
         $variables = [];
 
-        $variables['calendars'] = $commonGroundService->getResourceList($commonGroundService->getComponent('arc')['href'].'/calendars');;
+        $variables['calendars'] = $commonGroundService->getResourceList($commonGroundService->getComponent('arc')['href'].'/calendars');
 
         return $variables;
     }
@@ -41,7 +41,7 @@ class AgendaController extends AbstractController
     {
         $variables = [];
 
-        $variables['events'] = $commonGroundService->getResourceList($commonGroundService->getComponent('arc')['href'].'/events');;
+        $variables['events'] = $commonGroundService->getResourceList($commonGroundService->getComponent('arc')['href'].'/events');
 
         return $variables;
     }

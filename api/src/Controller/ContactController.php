@@ -1,43 +1,36 @@
 <?php
 
-// src/Controller/DashboardController.php
 
 namespace App\Controller;
 
 use App\Service\ApplicationService;
 //use App\Service\RequestService;
+use App\Service\CommonGroundService;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
-use DateTimeZone;
 use Symfony\Component\Routing\Annotation\Route;
-
-use App\Service\CommonGroundService;
+use DateTimeZone;
 
 /**
  * Class DeveloperController
  * @package App\Controller
- * @Route("/")
+ * @Route("/contact")
  */
-class DefaultController extends AbstractController
+class ContactController extends AbstractController
 {
     /**
-	 * @Route("/")
-	 * @Template
-	 */
-    public function indexAction(Session $session, $slug = false, Request $httpRequest, CommonGroundService $commonGroundService, ApplicationService $applicationService)
+     * @Route("/organization")
+     * @Template
+     */
+    public function organizationAction(Session $session, $slug = false, Request $httpRequest, CommonGroundService $commonGroundService, ApplicationService $applicationService)
     {
-        $variables = $applicationService->getVariables();
+        $variables = [];
+
+        $variables['organizationContacts'] = $commonGroundService->getResourceList($commonGroundService->getComponent('cc')['href'].'/organizations');
 
         return $variables;
     }
-
 }
-
-
-
-
-
-

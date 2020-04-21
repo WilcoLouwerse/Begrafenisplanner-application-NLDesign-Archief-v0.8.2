@@ -30,8 +30,8 @@ parameters:
     common_ground.bag.location: 'https://bag.basisregistraties.overheid.nl/api/v1/'
     common_ground.bag.apikey: 'e8a95365-3078-4b41-990a-e3de43cecd36'
 
-    common_ground.ac.location: 'https://ac.begraven.zaakonline.nl'
-    common_ground.ac.apikey: '%env(APP_COMMONGROUND_KEY)%'
+    common_ground.arc.location: 'https://arc.begraven.zaakonline.nl'
+    common_ground.arc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
     common_ground.as.location: 'https://as.zaakonline.nl'
     common_ground.as.apikey: '%env(APP_COMMONGROUND_KEY)%'
@@ -75,7 +75,7 @@ parameters:
     common_ground.vtc.location: 'https://vtc.zaakonline.nl'
     common_ground.vtc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.wrc.location: 'https://wrc.zaakonline.nl'
+    common_ground.wrc.location: 'https://wrc.begraven.zaakonline.nl'
     common_ground.wrc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
     common_ground.grc.location: 'https://grc.begraven.zaakonline.nl'

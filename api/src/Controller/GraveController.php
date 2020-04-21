@@ -45,7 +45,7 @@ class GraveController extends AbstractController
     {
         $variables = [];
 
-        $variables['cemeteries'] = $commonGroundService->getResourceList($commonGroundService->getComponent('grc')['href'].'/cemeteries');;
+        $variables['cemeteries'] = $commonGroundService->getResourceList($commonGroundService->getComponent('grc')['href'].'/cemeteries');
 
         if(isset($_POST['Submit']))
         {

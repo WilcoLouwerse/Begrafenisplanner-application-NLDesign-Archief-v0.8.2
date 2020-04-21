@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
+use DateTimeZone;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Service\CommonGroundService;
@@ -22,14 +23,16 @@ use App\Service\CommonGroundService;
  */
 class DefaultController extends AbstractController
 {
-
-	/**
+    /**
 	 * @Route("/")
 	 * @Template
 	 */
     public function indexAction(Session $session, $slug = false, Request $httpRequest, CommonGroundService $commonGroundService, ApplicationService $applicationService)
     {
         $variables = $applicationService->getVariables();
+        $variables['organizations'] = $commonGroundService->getResourceList($commonGroundService->getComponent('wrc')['href'].'/organizations');
+
+
 
         return $variables;
     }

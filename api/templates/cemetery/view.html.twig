@@ -22,11 +22,11 @@
                         </tr>
                         </thead>
                         <tbody>
-                         {% for cemetery in cemeteries['hydra:member'] %}
+                         {% for cemetery in cemeteries %}
                         <tr>
                             <td>{{ (cemetery['id']) }}</td>
                             <td>{{ (cemetery['reference']) }}</td>
-                            {% for organization in organizations['hydra:member'] %}
+                            {% for organization in organizations %}
                                 {% if organization['@id'] == cemetery['organization'] %}
                                     <td>{{ (organization['name']) }}</td>
                                     {% set break = true %}

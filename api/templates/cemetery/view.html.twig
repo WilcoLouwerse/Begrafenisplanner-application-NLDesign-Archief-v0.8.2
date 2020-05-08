@@ -32,7 +32,12 @@
                                     {% set break = true %}
                                 {% endif %}
                             {% endfor %}
-                            <td>{{ (cemetery['calendar']) }}</td>
+                            {% for calendar in calendars %}
+                                {% if calendar['@id'] == cemetery['calendar'] %}
+                                    <td>{{ (calendar['name']) }}</td>
+                                    {% set break = true %}
+                                {% endif %}
+                            {% endfor %}
                         </tr>
                         {% endfor %}
                         </tbody>

@@ -28,8 +28,21 @@ class AgendaController extends AbstractController
     public function calendarAction(Session $session, $slug = false, Request $httpRequest, CommonGroundService $commonGroundService, ApplicationService $applicationService)
     {
         $variables = [];
+        $variables['calendars'] = [];
 
-        $variables['calendars'] = $commonGroundService->getResourceList($commonGroundService->getComponent('arc')['href'].'/calendars');
+        $calendars = $commonGroundService->getResourceList($commonGroundService->getComponent('arc')['href'].'/calendars');
+        if(key_exists("hydra:view", $calendars))
+        {
+            $lastPageCalendars = (int) str_replace("/calendars?page=", "", $calendars["hydra:view"]["hydra:last"]);
+            for ($i = 1; $i <= $lastPageCalendars; $i++)
+            {
+                $variables['calendars'] = array_merge($variables['calendars'], $commonGroundService->getResourceList($commonGroundService->getComponent('arc')['href'].'/calendars', ['page'=>$i])["hydra:member"]);
+            }
+        }
+        else
+        {
+            $variables["calendars"] = $calendars["hydra:member"];
+        }
 
         return $variables;
     }
@@ -40,8 +53,36 @@ class AgendaController extends AbstractController
     public function eventAction(Session $session, $slug = false, Request $httpRequest, CommonGroundService $commonGroundService, ApplicationService $applicationService)
     {
         $variables = [];
+        $variables['events'] = [];
+        $variables['calendars'] = [];
 
-        $variables['events'] = $commonGroundService->getResourceList($commonGroundService->getComponent('arc')['href'].'/events');
+        $events = $commonGroundService->getResourceList($commonGroundService->getComponent('arc')['href'].'/events');
+        if(key_exists("hydra:view", $events))
+        {
+            $lastPageEvents = (int) str_replace("/events?page=", "", $events["hydra:view"]["hydra:last"]);
+            for ($i = 1; $i <= $lastPageEvents; $i++)
+            {
+                $variables['events'] = array_merge($variables['events'], $commonGroundService->getResourceList($commonGroundService->getComponent('arc')['href'].'/events', ['page'=>$i])["hydra:member"]);
+            }
+        }
+        else
+        {
+            $variables["events"] = $events["hydra:member"];
+        }
+
+        $calendars = $commonGroundService->getResourceList($commonGroundService->getComponent('arc')['href'].'/calendars');
+        if(key_exists("hydra:view", $calendars))
+        {
+            $lastPageCalendars = (int) str_replace("/calendars?page=", "", $calendars["hydra:view"]["hydra:last"]);
+            for ($i = 1; $i <= $lastPageCalendars; $i++)
+            {
+                $variables['calendars'] = array_merge($variables['calendars'], $commonGroundService->getResourceList($commonGroundService->getComponent('arc')['href'].'/calendars', ['page'=>$i])["hydra:member"]);
+            }
+        }
+        else
+        {
+            $variables["calendars"] = $calendars["hydra:member"];
+        }
 
         return $variables;
     }

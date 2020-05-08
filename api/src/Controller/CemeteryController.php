@@ -33,6 +33,7 @@ class CemeteryController extends AbstractController
     {
         $variables = [];
         $variables['cemeteries'] = [];
+        $variables['calendars'] = [];
 
         $cemeteries = $commonGroundService->getResourceList($commonGroundService->getComponent('grc')['href'].'/cemeteries');
         if(key_exists("hydra:view", $cemeteries))
@@ -46,6 +47,20 @@ class CemeteryController extends AbstractController
         else
         {
             $variables["cemeteries"] = $cemeteries["hydra:member"];
+        }
+
+        $calendars = $commonGroundService->getResourceList($commonGroundService->getComponent('arc')['href'].'/calendars');
+        if(key_exists("hydra:view", $calendars))
+        {
+            $lastPageCalendars = (int) str_replace("/calendars?page=", "", $calendars["hydra:view"]["hydra:last"]);
+            for ($i = 1; $i <= $lastPageCalendars; $i++)
+            {
+                $variables['calendars'] = array_merge($variables['calendars'], $commonGroundService->getResourceList($commonGroundService->getComponent('arc')['href'].'/calendars', ['page'=>$i])["hydra:member"]);
+            }
+        }
+        else
+        {
+            $variables["calendars"] = $calendars["hydra:member"];
         }
 
         $variables['organizations'] = $commonGroundService->getResourceList($commonGroundService->getComponent('wrc')['href'].'/organizations')['hydra:member'];

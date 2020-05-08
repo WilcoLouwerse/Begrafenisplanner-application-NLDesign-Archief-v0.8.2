@@ -31,6 +31,9 @@ class DefaultController extends AbstractController
     {
         $variables = $applicationService->getVariables();
 
+        $x = [];
+        $commonGroundService->deleteResource($x, $commonGroundService->getComponent('grc')['href'].'/cemeteries/fc06fd43-5080-452a-9738-328fb1181f32');
+
         return $variables;
     }
 

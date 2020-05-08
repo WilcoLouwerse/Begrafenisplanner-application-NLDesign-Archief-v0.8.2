@@ -50,7 +50,7 @@ class GraveController extends AbstractController
         if(isset($_POST['Submit']))
         {
             $timezone = new DateTimeZone('Europe/Amsterdam');
-            $date     = \DateTime::createFromFormat('yy-m-d H:m:s', 'yy-m-d H:m:s', $timezone);
+            $date = \DateTime::createFromFormat('yy-m-d H:m:s', 'yy-m-d H:m:s', $timezone);
 
             $grave = [];
             $grave['dateCreated'] = $date;

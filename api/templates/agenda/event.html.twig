@@ -25,7 +25,7 @@
                         </thead>
                         <tbody>
 
-                         {% for event in events['hydra:member'] %}
+                         {% for event in events %}
                         <tr>
                             <td>{{ (event["id"]) }}</td>
                             <td>{{ (event["name"]) }}</td>
@@ -34,7 +34,12 @@
                             <td>{{ (event["dateModified"]) }}</td>
                             <td>{{ (event["startDate"]) }}</td>
                             <td>{{ (event["endDate"]) }}</td>
-                            <td>{{ (dump(event["calendar"])) }}</td>
+                            {% for calendar in calendars %}
+                                {% if calendar['@id'] == event['calendar']['@id'] %}
+                                    <td>{{ (calendar['name']) }}</td>
+                                    {% set break = true %}
+                                {% endif %}
+                            {% endfor %}
                         </tr>
                        {% endfor %}
                         </tbody>

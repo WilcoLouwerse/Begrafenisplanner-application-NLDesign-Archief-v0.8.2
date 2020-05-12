@@ -66,7 +66,7 @@ parameters:
     common_ground.pdc.location: 'https://pdc.zaakonline.nl'
     common_ground.pdc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.ptc.location: 'https://ptc.zaakonline.nl'
+    common_ground.ptc.location: 'https://ptc.begraven.zaakonline.nl'
     common_ground.ptc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
     common_ground.vrc.location: 'https://vrc.zaakonline.nl'

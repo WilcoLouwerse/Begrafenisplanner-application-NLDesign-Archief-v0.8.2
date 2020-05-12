@@ -32,7 +32,7 @@ class GraveController extends AbstractController
     {
         $variables = [];
 
-        $variables['graves'] = $commonGroundService->getResourceList($commonGroundService->getComponent('grc')['href'].'/graves');;
+        $variables['graves'] = $commonGroundService->getResourceList($commonGroundService->getComponent('grc')['href'].'/graves')['hydra:member'];
 
         return $variables;
     }
@@ -44,8 +44,22 @@ class GraveController extends AbstractController
     public function addAction(Session $session, $slug = false, Request $httpRequest, CommonGroundService $commonGroundService, ApplicationService $applicationService)
     {
         $variables = [];
+        $variables['cemeteries'] = [];
 
-        $variables['cemeteries'] = $commonGroundService->getResourceList($commonGroundService->getComponent('grc')['href'].'/cemeteries');
+        $cemeteries = $commonGroundService->getResourceList($commonGroundService->getComponent('grc')['href'].'/cemeteries');
+        if(key_exists("hydra:view", $cemeteries))
+        {
+            $lastPageCemeteries = (int) str_replace("/cemeteries?page=", "", $cemeteries["hydra:view"]["hydra:last"]);
+            for ($i = 1; $i <= $lastPageCemeteries; $i++)
+            {
+                $variables['cemeteries'] = array_merge($variables['cemeteries'], $commonGroundService->getResourceList($commonGroundService->getComponent('grc')['href'].'/cemeteries', ['page'=>$i])["hydra:member"]);
+            }
+        }
+        else
+        {
+            $variables["cemeteries"] = $cemeteries["hydra:member"];
+        }
+        $variables['gravetypes'] = $commonGroundService->getResourceList($commonGroundService->getComponent('grc')['href'].'/grave_types')['hydra:member'];
 
         if(isset($_POST['Submit']))
         {
@@ -64,7 +78,11 @@ class GraveController extends AbstractController
             $grave['deceased'] = $_POST['Deceased'];
             $grave['acquisition'] = $_POST['Acquisition'];
             $grave['reference'] = $_POST['Reference'];
-            $grave['graveType'] = $_POST['GraveType'];
+            $graveType = $_POST['GraveType'];
+            if($cemetery != "Select GraveType")
+            {
+                $grave['graveType'] = $graveType;
+            }
             $grave['status'] = $_POST['Status'];
             $grave['location'] = $_POST['Location'];
             $grave['position'] = (int) $_POST['Position'];

@@ -17,9 +17,9 @@ use DateTimeZone;
 /**
  * Class DeveloperController
  * @package App\Controller
- * @Route("/gravecover")
+ * @Route("/gravetype")
  */
-class GravecoverController extends AbstractController
+class GravetypeController extends AbstractController
 {
     /**
      * @Route("/view")
@@ -29,7 +29,7 @@ class GravecoverController extends AbstractController
     {
         $variables = [];
 
-        $variables['gravecovers'] = $commonGroundService->getResourceList($commonGroundService->getComponent('grc')['href'].'/grave_covers');
+        $variables['gravetypes'] = $commonGroundService->getResourceList($commonGroundService->getComponent('grc')['href'].'/grave_types')['hydra:member'];
 
         return $variables;
     }
@@ -47,12 +47,12 @@ class GravecoverController extends AbstractController
             $timezone = new DateTimeZone('Europe/Amsterdam');
             $date     = \DateTime::createFromFormat('yy-m-d H:m:s', 'yy-m-d H:m:s', $timezone);
 
-            $gravecover = [];
-            $gravecover['dateCreated'] = $date;
-            $gravecover['dateModified'] = $date;
-            $gravecover['description'] = $_POST['Description'];
-            $gravecover['reference'] = $_POST['Reference'];
-            $commonGroundService->createResource($gravecover, $commonGroundService->getComponent('grc')['href'].'/grave_covers');
+            $gravetype = [];
+            $gravetype['dateCreated'] = $date;
+            $gravetype['dateModified'] = $date;
+            $gravetype['description'] = $_POST['Description'];
+            $gravetype['reference'] = $_POST['Reference'];
+            $commonGroundService->createResource($gravetype, $commonGroundService->getComponent('grc')['href'].'/grave_types');
         }
 
         return $variables;

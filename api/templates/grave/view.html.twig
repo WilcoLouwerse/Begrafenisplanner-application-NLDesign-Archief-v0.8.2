@@ -30,7 +30,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                         {% for grave in graves['hydra:member'] %}
+                         {% for grave in graves %}
                         <tr>
                             <td>{{ (grave["id"]) }}</td>
                             <td>{{ (grave["reference"]) }}</td>
@@ -38,7 +38,7 @@
                             <td>{{ (grave["deceased"]) }}</td>
                             <td>{{ (grave["location"]) }}</td>
                             <td>{{ (grave["position"]) }}</td>
-                            <td>{{ (grave["graveType"]) }}</td>
+                            <td>{{ (grave["graveType"]["reference"]) }}</td>
                             <td>{{ (grave["status"]) }}</td>
                             <td>{{ (grave["acquisition"]) }}</td>
                             <td>{{ (grave["description"]) }}</td>

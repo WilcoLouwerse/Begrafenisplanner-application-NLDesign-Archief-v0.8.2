@@ -17,7 +17,7 @@
                             Cemetery:
                             <select name="Cemetery">
                                 <option>Select Cemetery</option>
-                                {% for cemetery in cemeteries['hydra:member'] %}
+                                {% for cemetery in cemeteries %}
                                     <option value="{{ cemetery['@id'] }}">{{  (cemetery['reference']) }}</option>
                                 {% endfor %}
                             </select>
@@ -25,7 +25,15 @@
                         Deceased: <input type = "text" name = "Deceased" value="Deceased Here"/> <br />
                         Location: <input type = "text" name = "Location" value="Location Here"/> <br />
                         Position: <input type = "text" name = "Position" value="Position Number Here"/> <br />
-                        Grave Type: <input type = "text" name = "GraveType" value="GraveType Here"/> <br />
+                        <div class="field select-box">
+                            Cemetery:
+                            <select name="GraveType">
+                                <option>Select GraveType</option>
+                                {% for graveType in gravetypes %}
+                                    <option value="{{ graveType['@id'] }}">{{  (graveType['reference']) }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
                         Status: <input type = "text" name = "Status" value="Status Here"/> <br />
                         Acquisition: <input type = "text" name = "Acquisition" value="Acquisition Here"/> <br />
                         Description: <input type = "text" name = "Description" value="Description Here"/> <br />

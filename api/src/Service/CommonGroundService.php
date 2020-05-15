@@ -520,7 +520,7 @@ class CommonGroundService
     public function getComponentList()
     {
         $components = [
-            'arc'    => ['href'=> $this->params->get('common_ground.arc.location'),   'authorization'=>$this->params->get('common_ground.arc.apikey')],
+            'arc'   => ['href'=> $this->params->get('common_ground.arc.location'),   'authorization'=>$this->params->get('common_ground.arc.apikey')],
             'as'    => ['href'=> $this->params->get('common_ground.as.location'),   'authorization'=>$this->params->get('common_ground.as.apikey')],
             'bc'    => ['href'=> $this->params->get('common_ground.bc.location'),   'authorization'=>$this->params->get('common_ground.bc.apikey')],
             'brp'   => ['href'=> $this->params->get('common_ground.brp.location'),  'authorization'=>$this->params->get('common_ground.brp.apikey')],

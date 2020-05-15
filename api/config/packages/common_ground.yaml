@@ -39,13 +39,13 @@ parameters:
     common_ground.bc.location: 'https://bc.zaakonline.nl'
     common_ground.bc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.brp.location: 'https://brp.zaakonline.nl'
+    common_ground.brp.location: 'https://brp.begraven.zaakonline.nl'
     common_ground.brp.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
     common_ground.bs.location: 'https://bs.zaakonline.nl'
     common_ground.bs.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.cc.location: 'https://cc.begraven.zaakonline.nl'
+    common_ground.cc.location: 'https://cc.zaakonline.nl'
     common_ground.cc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
     common_ground.irc.location: 'https://irc.zaakonline.nl'
@@ -66,7 +66,7 @@ parameters:
     common_ground.pdc.location: 'https://pdc.zaakonline.nl'
     common_ground.pdc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.ptc.location: 'https://ptc.begraven.zaakonline.nl'
+    common_ground.ptc.location: 'https://ptc.zaakonline.nl'
     common_ground.ptc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
     common_ground.vrc.location: 'https://vrc.zaakonline.nl'

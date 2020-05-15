@@ -33,46 +33,46 @@ parameters:
     common_ground.arc.location: 'https://arc.begraven.zaakonline.nl'
     common_ground.arc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.as.location: 'https://as.zaakonline.nl'
+    common_ground.as.location: 'https://as.begraven.zaakonline.nl'
     common_ground.as.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.bc.location: 'https://bc.zaakonline.nl'
+    common_ground.bc.location: 'https://bc.begraven.zaakonline.nl'
     common_ground.bc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.brp.location: 'https://brp.zaakonline.nl'
+    common_ground.brp.location: 'https://brp.begraven.zaakonline.nl'
     common_ground.brp.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.bs.location: 'https://bs.zaakonline.nl'
+    common_ground.bs.location: 'https://bs.begraven.zaakonline.nl'
     common_ground.bs.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
     common_ground.cc.location: 'https://cc.begraven.zaakonline.nl'
     common_ground.cc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.irc.location: 'https://irc.zaakonline.nl'
+    common_ground.irc.location: 'https://irc.begraven.zaakonline.nl'
     common_ground.irc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.lc.location: 'https://lc.zaakonline.nl'
+    common_ground.lc.location: 'https://lc.begraven.zaakonline.nl'
     common_ground.lc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.ltc.location: 'https://ltc.zaakonline.nl'
+    common_ground.ltc.location: 'https://ltc.begraven.zaakonline.nl'
     common_ground.ltc.apikey: '%env(APP_COMMONGROUND_KEY)%'
     
-    common_ground.mrc.location: 'https://mrc.zaakonline.nl'
+    common_ground.mrc.location: 'https://mrc.begraven.zaakonline.nl'
     common_ground.mrc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.orc.location: 'https://orc.zaakonline.nl'
+    common_ground.orc.location: 'https://orc.begraven.zaakonline.nl'
     common_ground.orc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.pdc.location: 'https://pdc.zaakonline.nl'
+    common_ground.pdc.location: 'https://pdc.begraven.zaakonline.nl'
     common_ground.pdc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
     common_ground.ptc.location: 'https://ptc.begraven.zaakonline.nl'
     common_ground.ptc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.vrc.location: 'https://vrc.zaakonline.nl'
+    common_ground.vrc.location: 'https://vrc.begraven.zaakonline.nl'
     common_ground.vrc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
-    common_ground.vtc.location: 'https://vtc.zaakonline.nl'
+    common_ground.vtc.location: 'https://vtc.begraven.zaakonline.nl'
     common_ground.vtc.apikey: '%env(APP_COMMONGROUND_KEY)%'
 
     common_ground.wrc.location: 'https://wrc.begraven.zaakonline.nl'

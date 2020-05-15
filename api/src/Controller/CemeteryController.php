@@ -78,6 +78,7 @@ class CemeteryController extends AbstractController
 
         $variables['organizations'] = $commonGroundService->getResourceList($commonGroundService->getComponent('wrc')['href'].'/organizations');
 
+
         if(isset($_POST['Submit']))
         {
             $timezone = new DateTimeZone('Europe/Amsterdam');

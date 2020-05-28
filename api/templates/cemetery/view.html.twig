@@ -26,6 +26,7 @@
                         <tr>
                             <td>{{ (cemetery['id']) }}</td>
                             <td>{{ (cemetery['reference']) }}</td>
+                            <td>{{ (cemetery['organization']) }}</td>
                             {% for organization in organizations %}
                                 {% if organization['@id'] == cemetery['organization'] %}
                                     <td>{{ (organization['name']) }}</td>
@@ -34,7 +35,7 @@
                             {% endfor %}
                             {% for calendar in calendars %}
                                 {% if calendar['@id'] == cemetery['calendar'] %}
-                                    <td>{{ (calendar['name']) }}</td>
+                                    <td>{{ (calendar['@id']) }}</td>
                                     {% set break = true %}
                                 {% endif %}
                             {% endfor %}
